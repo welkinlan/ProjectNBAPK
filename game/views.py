@@ -62,10 +62,12 @@ def play(request):
         player_scores = [sg_score(players[0]),pg_score(players[1]),sf_score(players[2]),pf_score(players[3]),center_score(players[4]),
                           sg_score(players[5]),pg_score(players[6]),sf_score(players[7]),pf_score(players[8]),center_score(players[9])]
 
-        team1_score = sum(player_scores[0:5])
-        team2_score = sum(player_scores[5:10])
+        team1 = player_scores[0:5]
+        team2 = player_scores[5:10]
+        team1_score = sum(team1)
+        team2_score = sum(team2)
 
-        return render(request, 'game/result.html', {'players': players, 'team1_score':team1_score,
+        return render(request, 'game/result.html', {'team1': team1, 'team1_score':team1_score, 'team2': team2,
                                                     'team2_score':team2_score, 'player_scores': player_scores})
     return render(request, 'game/play.html')
 

@@ -43,12 +43,13 @@
             <div class="inner cover">
 
                 <div class="row">
-                    <div class="col-md-4 player-logo">
-                        <img class="pull-left" src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.jpg' %}" alt={{ player.name }}>
-                    </div>
-                    <div class="col-md-8">
+
+                    <div class="col-md-10">
                         <h1 class="blockquote-reverse">{{ player.PLAYER_NAME }}</h1>
                         <h1 class="blockquote-reverse"> Score:{{ score|floatformat:2 }}</h1>
+                    </div>
+                    <div class="col-md-2 player-logo">
+                        <img class="pull-right" src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.jpg' %}" alt={{ player.name }}>
                     </div>
                 </div>
 
