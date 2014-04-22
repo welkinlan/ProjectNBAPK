@@ -16,8 +16,8 @@ Besides the main function of the game, you are also able to:
    - select different positions
    - select different sorting order (Points, Rebounds, True Shooting Percent, etc)
 2. Search players.
-2. Browse all teams and their game data.
-3. 
+3. Browse all teams and their game data.
+
 
 
 
