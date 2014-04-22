@@ -1,0 +1,169 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NBA TEAM PK</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'game/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'game/css/cover.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="clearfix masthead">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA Team P.K.</h3>
+                    <img src="{% static 'game/images/nba_logo.gif' %}">
+                    <ul class="nav masthead-nav">
+                        <li><a href="{% url 'game:play' %}">Play</a></li>
+                        <li><a href="{% url 'game:players' 'all' 'PTS' 1%}">Players</a></li>
+                        <li class="active"><a href="{% url 'game:teams' %}">Teams</a></li>
+                        <li><a href="{% url 'game:search' %}">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="inner cover">
+                {% if teams_atlantic %}
+                    <div class="row" id="ATLANTIC">
+                        <div class="col-md-2">
+                            <p>ATLANTIC</p>
+                        </div>
+                    {% for team in teams_atlantic %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+                {% if teams_central %}
+                    <div class="row" id="CENTRAL">
+                        <div class="col-md-2">
+                            <p>CENTRAL</p>
+                        </div>
+                    {% for team in teams_central %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+                {% if teams_southeast %}
+                    <div class="row" id="SOUTHEAST">
+                        <div class="col-md-2">
+                            <p>SOUTHEAST</p>
+                        </div>
+                    {% for team in teams_southeast %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+                {% if teams_southwest %}
+                    <div class="row" id="SOUTHWEST">
+                        <div class="col-md-2">
+                            <p>SOUTHWEST</p>
+                        </div>
+                    {% for team in teams_southwest %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+                {% if teams_northwest %}
+                    <div class="row" id="NORTHWEST">
+                        <div class="col-md-2">
+                            <p>NORTHWEST</p>
+                        </div>
+                    {% for team in teams_northwest %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+                {% if teams_pacific %}
+                    <div class="row" id="PACIFIC">
+                        <div class="col-md-2">
+                            <p>PACIFIC</p>
+                        </div>
+                    {% for team in teams_pacific %}
+                        <div class="col-xs-6 col-md-2 team-logo">
+                            <a href="{% url 'game:team_detail' team.id 1%}" class="thumbnail">
+                            <img src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No game data is available.</p>
+                {% endif %}
+
+
+
+
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>670 Project, designed by <a href="https://twitter.com/welkinlan">@WelkinLan</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'game/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{% load staticfiles %}
+{% load game_extras%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NBA TEAM PK</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'game/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'game/css/cover.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="clearfix masthead">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA Team P.K.</h3>
+                    <img src="{% static 'game/images/nba_logo.gif' %}">
+                    <ul class="nav masthead-nav">
+                        <li><a href="{% url 'game:play' %}">Play</a></li>
+                        <li><a href="{% url 'game:players' 'all' 'PTS' 1 %}">Players</a></li>
+                        <li class="active"><a href="{% url 'game:teams' %}">Teams</a></li>
+                        <li><a href="{% url 'game:search' %}">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="inner cover">
+
+                <div class="row">
+                    <div class="col-md-4 team-logo">
+                        <img class="pull-left" src="{% static 'game/images/teams/'|add:team.name|add:'.gif' %}" alt={{ team.name }}>
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="blockquote-reverse">{{ team.name }}</h1>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Matchup</th>
+                            <th>W/L</th>
+                            <th>FG%</th>
+                            <th>3FG%</th>
+                            <th>FT%</th>
+                            <th>REB</th>
+                            <th>AST</th>
+                            <th>STL</th>
+                            <th>BLK</th>
+                            <th>TOV</th>
+                            <th>PF</th>
+                            <th>PTS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% if games %}
+                            {% for game in games %}
+                                {% if game.WL == "W" %}
+                                <tr>
+                                {% else %}
+                                <tr class="tr-danger">
+                                {% endif %}
+                                    <td>{{game.TEAM_NAME}} {{game.PLACE}} {{game.RIVAL_NAME}}</td>
+                                    <td>{{game.WL}}</td>
+                                    <td>{{game.FG_PCT}}</td>
+                                    <td>{{game.FG3_PCT}}</td>
+                                    <td>{{game.FT_PCT}}</td>
+                                    <td>{{game.REB}}</td>
+                                    <td>{{game.AST}}</td>
+                                    <td>{{game.STL}}</td>
+                                    <td>{{game.BLK}}</td>
+                                    <td>{{game.TOV}}</td>
+                                    <td>{{game.PF}}</td>
+                                    <td>{{game.PTS}}</td>
+                                {% endfor %}
+                                </tr>
+                        {% else %}
+                            <p>No game data is available.</p>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <ul class="pagination pagination-sm">
+                      {% for i in pages_range %}
+                        {%  if i|add:1|int_equal:page_num %}
+                        <li class="active">
+                        {%  else %}
+                        <li>
+                        {%  endif %}
+                            <a href="{% url 'game:team_detail' team_id i|add:1 %}">{{ forloop.counter }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                </div>
+
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>670 Project, designed by <a href="https://twitter.com/welkinlan">@WelkinLan</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+

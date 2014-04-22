@@ -1,0 +1,154 @@
+{% load staticfiles %}
+{% load game_extras%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NBA TEAM PK</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'game/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'game/css/cover.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="clearfix masthead">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA Team P.K.</h3>
+                    <img src="{% static 'game/images/nba_logo.gif' %}">
+                    <ul class="nav masthead-nav">
+                        <li><a href="{% url 'game:play' %}">Play</a></li>
+                        <li class="active"><a href="{% url 'game:players' 'all' 'PTS' 1 %}">Players</a></li>
+                        <li><a href="{% url 'game:teams' %}">Teams</a></li>
+                        <li><a href="{% url 'game:search' %}">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="inner cover">
+
+                <div class="row">
+                    <div class="col-md-4 player-logo">
+                        <img class="pull-left" src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.jpg' %}" alt={{ player.name }}>
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="blockquote-reverse">{{ player.PLAYER_NAME }}</h1>
+                        <h1 class="blockquote-reverse"> Score:{{ score|floatformat:2 }}</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>GP</th>
+                            <th>MIN</th>
+                            <th>PTS</th>
+                            <th>FGM</th>
+                            <th>FGA</th>
+                            <th>FG%</th>
+                            <th>3FGM</th>
+                            <th>3FGA</th>
+                            <th>3FG%</th>
+                            <th>FTM</th>
+                            <th>FTA</th>
+                            <th>FT%</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{player.GP}}</td>
+                                <td>{{player.MIN}}</td>
+                                <td>{{player.PTS}}</td>
+                                <td>{{player.FGM}}</td>
+                                <td>{{player.FGA}}</td>
+                                <td>{{player.FG_PCT}}</td>
+                                <td>{{player.FG3M}}</td>
+                                <td>{{player.FG3A}}</td>
+                                <td>{{player.FG3_PCT}}</td>
+                                <td>{{player.FTM}}</td>
+                                <td>{{player.FTA}}</td>
+                                <td>{{player.FT_PCT}}</td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th>OREB</th>
+                                <th>DREB</th>
+                                <th>REB</th>
+                                <th>AST</th>
+                                <th>STL</th>
+                                <th>BLK</th>
+                                <th>TOV</th>
+                                <th>PF</th>
+                                <th>AST/TO</th>
+                                <th>STL/TO</th>
+                                <th>eFG%</th>
+                                <th>TS%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{player.OREB}}</td>
+                                <td>{{player.DREB}}</td>
+                                <td>{{player.REB}}</td>
+                                <td>{{player.AST}}</td>
+                                <td>{{player.STL}}</td>
+                                <td>{{player.BLK}}</td>
+                                <td>{{player.TOV}}</td>
+                                <td>{{player.PF}}</td>
+                                <td>{{player.AST_TOV}}</td>
+                                <td>{{player.STL_TOV}}</td>
+                                <td>{{player.EFG_PCT}}</td>
+                                <td>{{player.TS_PCT}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <ul class="pagination pagination-sm">
+                      {% for i in pages_range %}
+                        {%  if i|add:1|int_equal:page_num %}
+                        <li class="active">
+                        {%  else %}
+                        <li>
+                        {%  endif %}
+                            <a href="{% url 'game:team_detail' team_id i|add:1 %}">{{ forloop.counter }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                </div>
+
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>670 Project, designed by <a href="https://twitter.com/welkinlan">@WelkinLan</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+</div>
+</body>
+</html>
+
+

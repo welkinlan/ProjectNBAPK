@@ -1,0 +1,182 @@
+[
+  { "model": "game.team",
+    "pk": 1,
+    "fields": {
+      "name": "ATL"
+    }
+  },
+  { "model": "game.team",
+    "pk": 2,
+    "fields": {
+      "name": "BKN"
+    }
+  },
+  { "model": "game.team",
+    "pk": 3,
+    "fields": {
+      "name": "BOS"
+    }
+  },
+  { "model": "game.team",
+    "pk": 4,
+    "fields": {
+      "name": "CHA"
+    }
+  },
+  { "model": "game.team",
+    "pk": 5,
+    "fields": {
+      "name": "CHI"
+    }
+  },
+  { "model": "game.team",
+    "pk": 6,
+    "fields": {
+      "name": "CLE"
+    }
+  },
+  { "model": "game.team",
+    "pk": 7,
+    "fields": {
+      "name": "DAL"
+    }
+  },
+  { "model": "game.team",
+    "pk": 8,
+    "fields": {
+      "name": "DEN"
+    }
+  },
+  { "model": "game.team",
+    "pk": 9,
+    "fields": {
+      "name": "DET"
+    }
+  },
+  { "model": "game.team",
+    "pk": 10,
+    "fields": {
+      "name": "GSW"
+    }
+  },
+  { "model": "game.team",
+    "pk": 11,
+    "fields": {
+      "name": "HOU"
+    }
+  },
+  { "model": "game.team",
+    "pk": 12,
+    "fields": {
+      "name": "IND"
+    }
+  },
+  { "model": "game.team",
+    "pk": 13,
+    "fields": {
+      "name": "LAC"
+    }
+  },
+  { "model": "game.team",
+    "pk": 14,
+    "fields": {
+      "name": "LAL"
+    }
+  },
+  { "model": "game.team",
+    "pk": 15,
+    "fields": {
+      "name": "MEM"
+    }
+  },
+  { "model": "game.team",
+    "pk": 16,
+    "fields": {
+      "name": "MIA"
+    }
+  },
+  { "model": "game.team",
+    "pk": 17,
+    "fields": {
+      "name": "MIL"
+    }
+  },
+  { "model": "game.team",
+    "pk": 18,
+    "fields": {
+      "name": "MIN"
+    }
+  },
+  { "model": "game.team",
+    "pk": 19,
+    "fields": {
+      "name": "NOH"
+    }
+  },
+  { "model": "game.team",
+    "pk": 20,
+    "fields": {
+      "name": "NYK"
+    }
+  },
+  { "model": "game.team",
+    "pk": 21,
+    "fields": {
+      "name": "OKC"
+    }
+  },
+  { "model": "game.team",
+    "pk": 22,
+    "fields": {
+      "name": "ORL"
+    }
+  },
+  { "model": "game.team",
+    "pk": 23,
+    "fields": {
+      "name": "PHI"
+    }
+  },
+  { "model": "game.team",
+    "pk": 24,
+    "fields": {
+      "name": "PHX"
+    }
+  },
+  { "model": "game.team",
+    "pk": 25,
+    "fields": {
+      "name": "POR"
+    }
+  },
+  { "model": "game.team",
+    "pk": 26,
+    "fields": {
+      "name": "SAC"
+    }
+  },
+  { "model": "game.team",
+    "pk": 27,
+    "fields": {
+      "name": "SAS"
+    }
+  },
+   { "model": "game.team",
+    "pk": 28,
+    "fields": {
+      "name": "TOR"
+    }
+  },
+  { "model": "game.team",
+    "pk": 29,
+    "fields": {
+      "name": "UTA"
+    }
+  },
+  { "model": "game.team",
+    "pk": 30,
+    "fields": {
+      "name": "WAS"
+    }
+  }
+]

@@ -1,0 +1,194 @@
+{% load staticfiles %}
+{% load game_extras %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NBA TEAM PK</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'game/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'game/css/cover.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA Team P.K.</h3>
+                    <img src="{% static 'game/images/nba_logo.gif' %}">
+                    <ul class="nav masthead-nav">
+                        <li><a href="{% url 'game:play' %}">Play</a></li>
+                        <li class="active"><a href="{% url 'game:players' 'all' 'PTS' 1%}">Players</a></li>
+                        <li><a href="{% url 'game:teams' %}">Teams</a></li>
+                        <li><a href="{% url 'game:search' %}">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Player</th>
+                            <th class="th_high">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                       {{ pos }} <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'game:players' 'all' sort_by 1 %}">All</a></li>
+                                        <li><a href="{% url 'game:players' 'CEN' sort_by 1 %}">Center</a></li>
+                                        <li><a href="{% url 'game:players' 'SF' sort_by 1 %}">Small Forward</a></li>
+                                        <li><a href="{% url 'game:players' 'PF' sort_by 1 %}">Power Forward</a></li>
+                                        <li><a href="{% url 'game:players' 'PG' sort_by 1 %}">Point Guard</a></li>
+                                        <li><a href="{% url 'game:players' 'SG' sort_by 1 %}">Shooting Guard</a></li>
+                                    </ul>
+                                </div>
+                            </th>
+                            <th>Game Played</th>
+                            <th>Minutes</th>
+                            <th class="th_high">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        {{ sort_by }} <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'game:players' pos 'PTS' 1 %}">Points</a></li>
+                                        <li><a href="{% url 'game:players' pos 'REB' 1 %}">Rebounds</a></li>
+                                        <li><a href="{% url 'game:players' pos 'AST' 1 %}">Assists</a></li>
+                                        <li><a href="{% url 'game:players' pos 'STL' 1 %}">Steals</a></li>
+                                        <li><a href="{% url 'game:players' pos 'BLK' 1 %}">Blocks</a></li>
+                                        <li><a href="{% url 'game:players' pos 'TOV' 1 %}">Turnovers</a></li>
+                                        <li><a href="{% url 'game:players' pos 'PF' 1 %}">Personal Fouls</a></li>
+                                        <li><a href="{% url 'game:players' pos 'FG_PCT' 1 %}">Field Goal%</a></li>
+                                        <li><a href="{% url 'game:players' pos 'FG3_PCT' 1 %}">3 Point Goal%</a></li>
+                                        <li><a href="{% url 'game:players' pos 'FT_PCT' 1 %}">Free Throws%</a></li>
+                                        <li><a href="{% url 'game:players' pos 'EFG_PCT' 1 %}">Effective FG%</a></li>
+                                        <li><a href="{% url 'game:players' pos 'TS_PCT' 1 %}">True Shooting%</a></li>
+                                    </ul>
+                                </div>
+                                <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                            </th>
+{#                            <th>PTS</th>#}
+{#                            <th>FG%</th>#}
+{#                            <th>3FG%</th>#}
+{#                            <th>FT%</th>#}
+{#                            <th>REB</th>#}
+{#                            <th>AST</th>#}
+{#                            <th>STL</th>#}
+{#                            <th>BLK</th>#}
+{#                            <th>TOV</th>#}
+{#                            <th>PF</th>#}
+{#                            <th>EFG%</th>#}
+{#                            <th>TS%</th>#}
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% if players %}
+                            {% for player in players %}
+                                <tr>
+                                    <td>{{ forloop.counter|rank:page_num }}</td>
+                                    <td>
+                                        <a href="{% url 'game:player_detail' player.id %}">
+                                            <img src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.jpg' %}"  style="width: 30px;height: 25px">
+                                            {{player.PLAYER_NAME}}
+                                        </a>
+                                    </td>
+                                    <td class="th_high">{{player.POS}}</td>
+                                    <td>{{player.GP}}</td>
+                                    <td>{{player.MIN}}</td>
+                                    {% if sort_by == "PTS" %}
+                                        <td class="th_high">{{player.PTS}}</td>
+                                    {% elif sort_by == "FG_PCT" %}
+                                        <td class="th_high">{{player.FG_PCT}}</td>
+                                    {% elif sort_by == "FG3_PCT" %}
+                                        <td class="th_high">{{player.FG3_PCT}}</td>
+                                    {% elif sort_by == "FT_PCT" %}
+                                        <td class="th_high">{{player.FT_PCT}}</td>
+                                    {% elif sort_by == "REB" %}
+                                        <td class="th_high">{{player.REB}}</td>
+                                    {% elif sort_by == "AST" %}
+                                        <td class="th_high">{{player.AST}}</td>
+                                    {% elif sort_by == "STL" %}
+                                        <td class="th_high">{{player.STL}}</td>
+                                    {% elif sort_by == "BLK" %}
+                                        <td class="th_high">{{player.BLK}}</td>
+                                    {% elif sort_by == "TOV" %}
+                                        <td class="th_high">{{player.TOV}}</td>
+                                    {% elif sort_by == "PF" %}
+                                        <td class="th_high">{{player.PF}}</td>
+                                    {% elif sort_by == "EFG_PCT" %}
+                                        <td class="th_high">{{player.EFG_PCT}}</td>
+                                    {% elif sort_by == "TS_PCT" %}
+                                        <td class="th_high">{{player.TS_PCT}}</td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <p>No player data is available.</p>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="btn-group">
+{#                    <ul class="pagination pagination-sm">#}
+{#                      {% for i in pages_range %}#}
+{#                        {%  if i|add:1|int_equal:page_num %}#}
+{#                        <li class="active">#}
+{#                        {%  else %}#}
+{#                        <li>#}
+{#                        {%  endif %}#}
+{#                            <a href="{% url 'game:players' sort_by i|add:1 %}">{{ forloop.counter }}</a>#}
+{#                        </li>#}
+{#                      {% endfor %}#}
+{#                    </ul>#}
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        Page {{ page_num }} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for i in pages_range %}
+                        <li>
+                            <a href="{% url 'game:players' pos sort_by i|add:1 %}">{{ forloop.counter }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>670 Project, designed by <a href="https://twitter.com/welkinlan">@WelkinLan</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{% static 'game/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

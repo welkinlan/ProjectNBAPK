@@ -1,0 +1,16 @@
+[
+  { "model": "game.data",
+    "pk": 1,
+    "fields": {
+      "name": "John1",
+      "desc": "Lenn1on"
+    }
+  },
+  { "model": "game.data",
+    "pk": 2,
+    "fields": {
+      "name": "Pau1l",
+      "desc": "McC1artney"
+    }
+  }
+]

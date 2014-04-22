@@ -1,0 +1,158 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NBA TEAM PK</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'game/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'game/css/cover.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="clearfix masthead">
+                <div class="inner">
+                    <h3 class="masthead-brand">NBA Team P.K.</h3>
+                    <img src="{% static 'game/images/nba_logo.gif' %}">
+                    <ul class="nav masthead-nav">
+                        <li class="active"><a href="#">Play</a></li>
+                        <li><a href="{% url 'game:players' 'all' 'PTS' 1%}">Players</a></li>
+                        <li><a href="{% url 'game:teams' %}">Teams</a></li>
+                        <li><a href="{% url 'game:search' %}">Search</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <h1 class="cover-heading">
+{#                    <span class="glyphicon glyphicon-hand-down"></span>#}
+                    Build your team
+{#                    <span class="glyphicon glyphicon-hand-down"></span>#}
+                </h1>
+
+                <form name="playForm" action="{% url 'game:play'%}" method="post" onsubmit="return checkForm();">
+                    {% csrf_token %}
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-5 well team1">
+                                <p class="lead">Team 1</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Point Guard</span>
+                                    <input type="text" class="form-control PG" name="pg1" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Shooting Guard</span>
+                                    <input type="text" class="form-control SG" name="sg1" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Small Forward</span>
+                                    <input type="text" class="form-control SF" name="sf1" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Power Forward</span>
+                                    <input type="text" class="form-control PF" name="pf1" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Center</span>
+                                    <input type="text" class="form-control CEN" name="c1" placeholder="Player name">
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 well team2">
+                                <p class="lead">Team 2</p>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Point Guard</span>
+                                    <input type="text" class="form-control PG" name="pg2" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Shooting Guard</span>
+                                    <input type="text" class="form-control SG" name="sg2" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Small Forward</span>
+                                    <input type="text" class="form-control SF" name="sf2" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Power Forward</span>
+                                    <input type="text" class="form-control PF" name="pf2" placeholder="Player name">
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>Center</span>
+                                    <input type="text" class="form-control CEN" name="c2" placeholder="Player name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="alert" class="alert alert-info" style="display: none">
+                    </div>
+
+                    <p class="lead">
+{#                        <span class="glyphicon glyphicon-arrow-right"></span>#}
+{#                        <span class="glyphicon glyphicon-arrow-right"></span>#}
+                        <input type="submit" value="P.K." class="btn btn-lg btn-default"/>
+{#                        <span class="glyphicon glyphicon-arrow-left"></span>#}
+{#                        <span class="glyphicon glyphicon-arrow-left"></span>#}
+                    </p>
+                </form>
+            </div>
+
+            <div class="mastfoot">
+                <div class="inner">
+                    <p>670 Project, designed by <a href="https://twitter.com/WelkinLan">@WelkinLan</a>.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="{% static 'game/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'game/js/play.js' %}"></script>
+<script src="{% static 'game/js/jquery-ui-1.10.4.min.js'%}"></script>
+
+</body>
+</html>
