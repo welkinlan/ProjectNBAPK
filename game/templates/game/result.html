@@ -45,16 +45,16 @@
                             <div class="col-md-5 well team1">
                                 <p class="lead">Team 1</p>
                                 <h2> Score: {{ team1_score|floatformat:2 }}</h2>
-                                {% for player in team1 %}
-                                    <h3>{{ player.PLAYER_NAME }}</h3>
+                                {% for player,score in team1.iteritems %}
+                                    <h5>{{ player }}:{{ score }}</h5>
                                 {% endfor %}
                             </div>
 
                             <div class="col-md-5 well team2">
                                 <p class="lead">Team 2</p>
                                 <h2> Score: {{ team2_score|floatformat:2 }}</h2>
-                                {% for player in team2 %}
-                                    <h3>{{ player.PLAYER_NAME }}</h3>
+                                {% for player,score in team2.iteritems %}
+                                    <h5>{{ player }}:{{ score }}</h5>
                                 {% endfor %}
                             </div>
                         </div>

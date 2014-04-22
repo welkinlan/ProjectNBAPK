@@ -19,16 +19,16 @@ function checkForm(){
         return false;
     }
 
-    else if(Names.indexOf(document.playForm.sf1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sf1.value+" is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.sf2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sf2.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.pf1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pf1.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.pf2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pf2.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.c1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.c1.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.c2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.c2.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.sg1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sg1.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.sg2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sg1.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.pg1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pg1.value+"' is not in the player pool."; return false;}
-    else if(Names.indexOf(document.playForm.pg2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pg2.value+"' is not in the player pool."; return false;}
+    else if(SF.indexOf(document.playForm.sf1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sf1.value+" is not in the SF pool."; return false;}
+    else if(SF.indexOf(document.playForm.sf2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sf2.value+"' is not in the SF pool."; return false;}
+    else if(PF.indexOf(document.playForm.pf1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pf1.value+"' is not in the PF pool."; return false;}
+    else if(PF.indexOf(document.playForm.pf2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pf2.value+"' is not in the PF pool."; return false;}
+    else if(CEN.indexOf(document.playForm.c1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.c1.value+"' is not in the Center pool."; return false;}
+    else if(CEN.indexOf(document.playForm.c2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.c2.value+"' is not in the Center pool."; return false;}
+    else if(SG.indexOf(document.playForm.sg1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sg1.value+"' is not in the SG pool."; return false;}
+    else if(SG.indexOf(document.playForm.sg2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.sg1.value+"' is not in the SG pool."; return false;}
+    else if(PG.indexOf(document.playForm.pg1.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pg1.value+"' is not in the PG pool."; return false;}
+    else if(PG.indexOf(document.playForm.pg2.value)<0) {document.getElementById("alert").style.display = "block"; document.getElementById("alert").innerHTML="'"+document.playForm.pg2.value+"' is not in the PG pool."; return false;}
 
     document.getElementById("alert").style.display = "none";
     return true;
