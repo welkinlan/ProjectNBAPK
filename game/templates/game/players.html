@@ -107,7 +107,7 @@
                                     <td>{{ forloop.counter|rank:page_num }}</td>
                                     <td>
                                         <a href="{% url 'game:player_detail' player.id %}">
-                                            <img src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.jpg' %}"  style="width: 30px;height: 25px">
+                                            <img src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.png' %}"  style="width: 30px;height: 25px">
                                             {{player.PLAYER_NAME}}
                                         </a>
                                     </td>

@@ -170,6 +170,14 @@ body {
     background-color: transparent;
     margin:20px 30px;
 }
+
+.team1-win{
+    color:dodgerblue;
+    border-width: 10px;
+    border-color: dodgerblue;
+    background-color: transparent;
+    margin:20px 30px;
+}
 .team1 input{
     color:dodgerblue;
 }
@@ -180,6 +188,14 @@ body {
 .team2{
     color:red;
     border-color: red;
+    background-color: transparent;
+    margin:20px 30px;
+}
+
+.team2-win{
+    color:red;
+    border-color: red;
+    border-width: 10px;
     background-color: transparent;
     margin:20px 30px;
 }
@@ -214,9 +230,15 @@ body {
 }
 
 .player-logo img{
-    width: 100px;
-    height: 128px;
+    width: 230px;
+    height: 185px;
 }
+
+.result-logo img{
+    width: 80px;
+    height: 60px;
+}
+
 
 
 .pagination{
@@ -233,4 +255,8 @@ td{
 
 .th_high{
     color: white;
+}
+
+.result-row{
+    margin-bottom: 5px;
 }

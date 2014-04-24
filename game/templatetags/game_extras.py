@@ -11,3 +11,7 @@ def rank(value, arg):
 @register.filter(name='int_equal')
 def int_equal(value, arg):
     return int(value) == int(arg)
+
+@register.filter(name='abs_tag')
+def abs_tag(value):
+    return abs(float(value))

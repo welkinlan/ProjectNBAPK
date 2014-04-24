@@ -40,32 +40,66 @@
             </div>
 
              <div class="inner cover">
+{#                <h1 class="cover-heading">#}
+{#                    <span class="glyphicon glyphicon-hand-down"></span>#}
+{#                    Winner:#}
+{#                    {% if team1_score > team2_score %}#}
+{#                        Team1#}
+{#                    {% else %}#}
+{#                        Team2#}
+{#                    {% endif %}#}
+{#                    <span class="glyphicon glyphicon-hand-down"></span>#}
+{#                </h1>#}
                 <div class="container-fluid">
                         <div class="row">
+                            {% if team1_score > team2_score %}
+                            <div class="col-md-5 well team1-win">
+                            {% else %}
                             <div class="col-md-5 well team1">
+                            {% endif %}
                                 <p class="lead">Team 1</p>
                                 <h2> Score: {{ team1_score|floatformat:2 }}</h2>
                                 {% for player,score in team1.iteritems %}
-                                    <h5>{{ player }}:{{ score }}</h5>
+                                    <div class="row result-row">
+                                        <a href="{% url 'game:player_detail' player.id %}">
+                                        <div class="col-md-4 result-logo">
+                                            <img class="pull-left" src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.png' %}">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5>{{ player }}</h5>
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             </div>
 
+                            {% if team1_score < team2_score %}
+                            <div class="col-md-5 well team2-win">
+                            {% else %}
                             <div class="col-md-5 well team2">
+                            {% endif %}
                                 <p class="lead">Team 2</p>
                                 <h2> Score: {{ team2_score|floatformat:2 }}</h2>
                                 {% for player,score in team2.iteritems %}
-                                    <h5>{{ player }}:{{ score }}</h5>
+                                    <div class="row result-row">
+                                        <a href="{% url 'game:player_detail' player.id %}">
+                                        <div class="col-md-4 result-logo">
+                                            <img class="pull-left" src="{% static 'game/images/players/'|add:player.PLAYER_NAME|add:'.png' %}" alt={{ player.name }}>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5>{{ player }}</h5>
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             </div>
                         </div>
 
                 </div>
                 <p class="lead">
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                    <span class="glyphicon glyphicon-arrow-right"></span>
+{#                    <span class="glyphicon glyphicon-arrow-right"></span>#}
+{#                    <span class="glyphicon glyphicon-arrow-right"></span>#}
                     <a href="{% url 'game:play' %}" class="btn btn-lg btn-default"> Play again. </a>
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                    <span class="glyphicon glyphicon-arrow-left"></span>
+{#                    <span class="glyphicon glyphicon-arrow-left"></span>#}
+{#                    <span class="glyphicon glyphicon-arrow-left"></span>#}
                 </p>
 
             </div>
@@ -73,3 +107,16 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="{% static 'game/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'game/js/play.js' %}"></script>
+<script src="{% static 'game/js/jquery-ui-1.10.4.min.js'%}"></script>
+
+</body>
+</html>

@@ -1,9 +1,5 @@
-from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
-from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-from django import forms
 
 from game.models import TeamRival, PlayerModel, Team
 
@@ -145,36 +141,38 @@ def get_ast_pct(p):
     return p.AST/p.GP
 
 def sg_score(p):
-    k = [10.1403591813,7.92559928021,-1.68368876644,0.0834489958525,-0.622774178923,
-         1.70145212393,-0.210151603144,0.192846506111,0.817867801501,0.185498627276,-2.35985106413]
+    k = [8.36580434731,7.96253363313,-1.67468640962,0.0835260442149,-0.627489778526,1.69095874933,
+         -0.205121979924,0.198064272251,0.804302465622,0.194905940799,-0.828816848125]
+
     item = [p.EFG_PCT,p.TS_PCT,p.FT_PCT,p.FG3_PCT,p.AST_TOV,p.STL_TOV,
             get_oreb_pct(p),get_dreb_pct(p),get_ast_pct(p),get_stl_pct(p),get_pf_pct(p)]
     return sum (x*y for x,y in zip(k,item))
 
 def sf_score(p):
-    k = [2.31357214435,1.23401901957,-0.302822154469,0.0848033354795,-0.479812576028
-         ,1.15199335691,-0.0563046747834,0.257127051968,0.609417861421,0.198950507681,0.804194964276]
+    k = [16.7472252444,4.76201937315,-1.89195639906,0.0418575316824,-0.309539150103,1.24657357575
+         -0.127305729013,0.407977140739,0.0928061597198,0.230666444007,-2.25957965396]
     item = [p.EFG_PCT,p.TS_PCT,p.FT_PCT,p.FG3_PCT,p.AST_TOV,p.STL_TOV,
             get_oreb_pct(p),get_dreb_pct(p),get_ast_pct(p),get_stl_pct(p),get_pf_pct(p)]
     return sum (x*y for x,y in zip(k,item))
 
 def center_score(p):
-    k = [11.6941404569,3.63422088394,-1.03033055845,0.073550659118,-0.684033825639,0.187323060141,
-         0.210258659901,0.135103154902,0.641899331065,0.373386483615,-4.55259513626]
+    k = [16.2353107297,2.57362021576,0.0157509351431,-0.0513302617805,0.256730461643,0.187323060141,
+         0.0678709721971,0.848575887295,-1.07555653494,0.482474965147,-3.72922945464]
     item = [p.EFG_PCT,p.TS_PCT,p.FT_PCT,p.FG3_PCT,p.AST_TOV,p.STL_TOV,
             get_oreb_pct(p),get_dreb_pct(p),get_ast_pct(p),get_stl_pct(p),get_pf_pct(p)]
     return sum (x*y for x,y in zip(k,item))
 
 def pf_score(p):
-    k = [3.30807330038,3.97567645514,-1.11105494761,0.080384144615,-0.748293961234,
-         0.198142217051,0.211008507083,0.113389461421,0.671075643291,0.377207935153,1.41185652658]
+    k = [11.8696614053,3.34166094703,-0.832639152143,0.0643418423023,-0.601782852871,
+         0.224886699464,0.134142422526,0.247000248527,0.400505168254,0.442851459543,-3.98379866329]
     item = [p.EFG_PCT,p.TS_PCT,p.FT_PCT,p.FG3_PCT,p.AST_TOV,p.STL_TOV,
             get_oreb_pct(p),get_dreb_pct(p),get_ast_pct(p),get_stl_pct(p),get_pf_pct(p)]
     return sum (x*y for x,y in zip(k,item))
 
 def pg_score(p):
-    k = [17.378548515,6.40513899395,-2.03875291709,0.0286505313115,-0.287807917523,2.22424746262,
-         -0.495853544328,0.171749597936,0.59026216528,0.096530387138,0.542013007401]
+    k = [15.1307330176,6.59470508645,-2.00877340401,0.0302439538857,-0.29644026405,0.103340920357,
+         -0.494175542653,0.173483735633,0.580577590303,0.096530387138,2.09663002458]
+
     item = [p.EFG_PCT,p.TS_PCT,p.FT_PCT,p.FG3_PCT,p.AST_TOV,p.STL_TOV,
             get_oreb_pct(p),get_dreb_pct(p),get_ast_pct(p),get_stl_pct(p),get_pf_pct(p)]
     return sum (x*y for x,y in zip(k,item))
