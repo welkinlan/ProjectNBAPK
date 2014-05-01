@@ -1,4 +1,4 @@
-NBAPK
+NBAPK (Tian Lan, Yunkun Gao, Yanming Zhou)
 =====
 
 This project makes your dream NBA team come true. Build 2 NBA teams and fight!
