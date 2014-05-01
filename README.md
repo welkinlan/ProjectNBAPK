@@ -11,11 +11,11 @@ To play this game, you are to:
    - Roll!
 
 Besides the main function of the game, you are also able to:
-1. Browse all players and their player data.
+- 1. Browse all players and their player data.
    - select different positions
    - select different sorting order (Points, Rebounds, True Shooting Percent, etc)
-2. Search players.
-3. Browse all teams and their game data.
+- 2. Search players.
+- 3. Browse all teams and their game data.
 
 
 
