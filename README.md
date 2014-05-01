@@ -7,7 +7,6 @@ HTML built by Bootstrap.
 
 To play this game, you are to:
    - Build team 1
-   - Choose 5 players (autocomplete from our 1100 NBA players pool) on 5 positions (Center, Power Forward, Small Forward,         Point Guard, Shooting Guard)
    - Build team 2
    - Roll!
 
