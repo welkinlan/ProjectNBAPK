@@ -6,10 +6,10 @@ Website built in Django.
 HTML built by Bootstrap.
 
 To play this game, you are to:
-1. Build team 1
-   - Choose 5 players (autocomplete from our 1100 NBA players pool) on 5 positions (Center, Power Forward, Small Forward, Point Guard, Shooting Guard)
-2. Build team 2
-3. Roll!
+   - Build team 1
+   - Choose 5 players (autocomplete from our 1100 NBA players pool) on 5 positions (Center, Power Forward, Small Forward,         Point Guard, Shooting Guard)
+   - Build team 2
+   - Roll!
 
 Besides the main function of the game, you are also able to:
 1. Browse all players and their player data.
