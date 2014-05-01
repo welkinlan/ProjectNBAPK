@@ -7,6 +7,7 @@ HTML built by Bootstrap.
 
 To play this game, you are to:
    - Build team 1
+      - Five players on five positions 
    - Build team 2
    - Roll!
 
