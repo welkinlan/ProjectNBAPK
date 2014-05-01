@@ -2,8 +2,8 @@ NBAPK
 =====
 
 This project makes your dream NBA team come true. Build 2 NBA teams and fight!
-\n Website built in Django.
-HTML built by Bootstrap.
+- Website built in Django.
+- HTML built by Bootstrap.
 
 To play this game, you are to:
    - Build team 1
