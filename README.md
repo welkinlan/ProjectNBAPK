@@ -1,8 +1,9 @@
 NBAPK (Tian Lan, Yukun Gao, Yanming Zhou)
 =====
 
-This project makes your dream NBA team come true. Build 2 NBA teams and fight!
-- Website built in Django.
+This project endows you the ability to build your dream NBA team. 
+You are encouraged to build 2 NBA teams and P.K. to see which one actually gets higher score!
+- Website built in Django (Python web framework).
 - HTML built by Bootstrap.
 
 To play this game, you are to:
