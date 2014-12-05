@@ -1,6 +1,9 @@
 NBAPK (Tian Lan, Yukun Gao, Yanming Zhou)
 =====
 
+Have a try! http://nba.welkinlan.com/game/
+
+
 This project endows you the ability to build your dream NBA team. 
 You are encouraged to build 2 NBA teams and P.K. to see which one actually gets higher score!
 - Website built in Django (Python web framework).
