@@ -1,7 +1,7 @@
 NBAPK (Tian Lan, Yukun Gao, Yanming Zhou)
 =====
 
-Have a try! http://nba.welkinlan.com/game/
+Have a try!
 
 
 This project endows you the ability to build your dream NBA team. 
